@@ -6,7 +6,7 @@ const client = new MongoClient(uri);
 async function run() {
   try {
     await client.connect();
-    const database = client.db("order_management");
+    const database = client.db("order_nagement");
     const collection = database.collection("orders");
 
     const orders = await collection.find({}).toArray();
