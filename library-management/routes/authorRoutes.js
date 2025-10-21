@@ -14,10 +14,11 @@ router.post("/",async(requestAnimationFrame,res)=>{
 
 
 
-router.get("/",async(requestAnimationFrame,res)=>{
+router.get("/author",async(requestAnimationFrame,res)=>{
     const author=await Author.find()
     res.json(authors)
+console.log(res)
 })
-
+// console
 
 module.exports=router;
