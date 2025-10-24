@@ -1,0 +1,126 @@
+/* Global reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+/* Dark theme */
+.app.dark {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Container for auth form */
+.auth-container {
+  width: 90%;
+  max-width: 350px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: center;
+
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Dark theme form */
+.app.dark .auth-container {
+  background-color: #1e1e1e;
+  border-color: #333;
+  color: #fff;
+}
+
+/* Hidden state for toggling form */
+.auth-container.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+/* Input fields */
+.auth-container input {
+  width: 95%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode input */
+.app.dark .auth-container input {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-color: #555;
+}
+
+/* Buttons */
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Theme toggle button */
+.theme-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: inherit;
+  transition: transform 0.3s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Toggle login/signup link */
+.toggle-link {
+  color: #007bff;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.toggle-link:hover {
+  color: #0056b3;
+}
+
+/* Responsive for small screens */
+@media (max-width: 500px) {
+  .auth-container {
+    margin: 50px auto;
+    padding: 15px;
+  }
+
+  .auth-container input, 
+  .auth-container button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .theme-btn {
+    font-size: 14px;
+  }
+}
