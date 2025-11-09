@@ -18,7 +18,10 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-green-100 text-gray-800">
       <nav className="flex justify-between items-center bg-green-200 p-3 shadow-md">
         <h1 className="text-2xl font-bold text-emerald-700">Health Tracker</h1>
-        <button className="bg-green-500 hover:bg-green-700 text-white font-bold px-4 py-1 rounded">
+        <button  onClick={()=>{
+          window.location.href="/"
+        }}
+        className="bg-green-500 hover:bg-green-700 text-white font-bold px-4 py-1 rounded">
           Logout
         </button>
       </nav>
