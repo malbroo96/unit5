@@ -31,6 +31,17 @@ app.post("/api/submit", express.json(), async(req, res) => {
 
   res.status(200).json({user });
 });
+app.post("/api/login",express.json(), async(req,res)=>{ 
+  const userData = req.body;
+  const user = await User.findOne({ email: userData.email });
+  if (!user) {
+    res.status(401).json({ error: "User not found" });
+  } else if (user.password !== userData.password) {
+    res.status(401).json({ error: "Invalid password" });
+  } else {
+    res.status(200).json({ user });
+  }
+})
 
 await connectDB();
 app.listen(5000, () => console.log("✅ Proxy running on port 5000"));
