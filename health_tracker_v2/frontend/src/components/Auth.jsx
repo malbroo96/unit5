@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../App.css";
+import { Navigate } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("login"); // "login" or "signup"
@@ -15,11 +16,13 @@ function App() {
         `Signing up...\nUsername: ${username}\nEmail: ${email}\nPassword: ${password}`
       );
     }
+    // Navigate("/home");
+    window.location.href = "/home";
 
-    console.log("Mode:", mode);
-    console.log("Username:", username);
-    console.log("Email:", email);
-    console.log("Password:", password);
+    // console.log("Mode:", mode);
+    // console.log("Username:", username);
+    // console.log("Email:", email);
+    // console.log("Password:", password);
 
     // clear inputs
     setUsername("");

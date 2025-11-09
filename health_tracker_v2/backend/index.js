@@ -1,6 +1,7 @@
 import express from "express";
 import axios from "axios";
 import cors from "cors";
+import connectDB from "./db.js";
 
 const app = express();
 app.use(cors());
@@ -16,5 +17,10 @@ app.get("/api/health", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch health data" });
   }
 });
-
+app.post("/api/submit", express.json(), (req, res) => {
+  const userData = req.body;
+  console.log("Received user data:", userData);
+  res.status(200).json({ message: "User data received successfully" });
+});
+ await connectDB();
 app.listen(5000, () => console.log("✅ Proxy running on port 5000"));
