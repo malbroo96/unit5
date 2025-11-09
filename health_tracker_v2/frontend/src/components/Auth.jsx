@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../App.css";
 import { Navigate } from "react-router-dom";
+import axios from "axios";
+import { set } from "mongoose";
 
 function App() {
   const [mode, setMode] = useState("login"); // "login" or "signup"
@@ -8,16 +10,22 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     if (mode === "login") {
       alert(`Logging in...\nUsername: ${username}\nPassword: ${password}`);
-    } else {
-      alert(
-        `Signing up...\nUsername: ${username}\nEmail: ${email}\nPassword: ${password}`
-      );
+      window.location.href = "/home";
+    } else if( mode === "signup") {
+    const res= await axios.post("http://localhost:5000/api/submit", {
+        username,
+        email,
+        password,
+      });
+      console.log(res.data);
+      alert(`singnup successful please  login now`);
+      setMode("login");
+
     }
     // Navigate("/home");
-    window.location.href = "/home";
 
     // console.log("Mode:", mode);
     // console.log("Username:", username);
