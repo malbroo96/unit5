@@ -15,7 +15,7 @@ function App() {
       alert(`Logging in...\nUsername: ${username}\nPassword: ${password}`);
       window.location.href = "/home";
     } else if( mode === "signup") {
-    const res= await axios.post("http://localhost:5000/api/submit", {
+    const res= await axios.post("http://localhost:5000/api/signup", {
         username,
         email,
         password,
